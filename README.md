@@ -1,1 +1,1 @@
-# movie-database-design
+# Movie Database Design - Thinh Le
