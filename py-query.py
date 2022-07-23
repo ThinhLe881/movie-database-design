@@ -29,7 +29,7 @@ def insert_query(sub_query_1, sub_query_2, sub_query_3):
 
 
 # Query:
-'''
+
 query = """Select "Title", Count("Movie Award"."MovieID") As "Awards"
     From "Movie"
     Left Join "Movie Award" On "Movie"."MovieID" = "Movie Award"."MovieID"
@@ -42,9 +42,9 @@ result = cur.fetchall()
 data = [list(t) for t in result]
 headers = ["Title", "Awards"]
 df = pd.DataFrame(data, columns=headers)
-'''
 
-'''
+# #############################################################################
+
 sub_query = f"""Select "MovieID"
 	From (
 		Select "MovieID", Count(Distinct "Country") As "Countries"
@@ -65,9 +65,9 @@ result = cur.fetchall()
 data = [list(t) for t in result]
 headers = ["Title"]
 df = pd.DataFrame(data, columns=headers)
-'''
 
-'''
+# #############################################################################
+
 sub_query_1 = f""" "FirstName", "LastName", "Country" """
 sub_query_2 = f""" "Director" """
 sub_query_3 = f""" "Country" """
@@ -83,9 +83,9 @@ result = cur.fetchall()
 data = [list(t) for t in result]
 headers = ["FirstName", "LastName", "Country"]
 df = pd.DataFrame(data, columns=headers)
-'''
 
-'''
+# #############################################################################
+
 sub_query_1 = f""" "FirstName", "LastName" """
 sub_query_2 = f""" "Director" """
 sub_query_3 = f""" "LastName" """
@@ -102,6 +102,6 @@ result = cur.fetchall()
 data = [list(t) for t in result]
 headers = ["FirstName", "LastName"]
 df = pd.DataFrame(data, columns=headers)
-'''
 
-# print(df)
+
+print(df)

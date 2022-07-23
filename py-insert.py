@@ -29,7 +29,7 @@ def insert_query(sub_query_1, sub_query_2, sub_query_3):
 
 
 # Insert
-'''
+
 query = """Insert into "Movie" ("Title", "Duration", "ReleaseDate", "Rating", "Budget", "Gross") values ('Hugo', interval '126' minute, '2011-11-23', 7.5, 170000000.0, 185800000.0)"""
 
 cur.execute(query)
@@ -41,9 +41,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """Insert into "Birth Location" ("City", "State", "Country") values ('Pittsburgh', 'Pennsylvania', 'United States')"""
 
 cur.execute(query)
@@ -55,9 +55,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """Insert into "Actor" ("BirthLocationID", "FirstName", "LastName", "DateOfBirth", "EyeColor") values ((Select "BirthLocationID" From "Birth Location" Where "City" = 'London' And "Country" = 'Canada'), 'Ryan', 'Gosling', '1980-11-12', 'Blue')"""
 
 cur.execute(query)
@@ -75,8 +75,8 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
+# #############################################################################
 
 query = """Insert into "Actor Position" ("ActorID", "MovieID") values ((Select "ActorID" From "Actor" Where "FirstName" = 'Ryan'), (Select "MovieID" From "Movie" Where "Title" = 'The Nice Guys'))"""
 
@@ -98,8 +98,8 @@ query = insert_query(
 
 cur.execute(query)
 
+# #############################################################################
 
-'''
 query = """Insert into "Director" ("BirthLocationID", "FirstName", "LastName", "DateOfBirth") values ((Select "BirthLocationID" From "Birth Location" Where "City" = 'Pittsburgh' And "Country" = 'United States'), 'Shane', 'Black', '1961-12-16')"""
 
 cur.execute(query)
@@ -117,9 +117,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """Insert into "Director Position" ("DirectorID", "MovieID") values ((Select "DirectorID" From "Director" Where "FirstName" = 'Martin'), (Select "MovieID" From "Movie" Where "Title" = 'Hugo'))"""
 
 cur.execute(query)
@@ -138,9 +138,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = (
     """Insert into "Award Category" ("CategoryName") values ('Best Visual Effects')"""
 )
@@ -152,9 +152,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """Insert into "Award" ("AwardName", "CategoryName") values ('Academy Awards', 'Best Visual Effects')"""
 
 cur.execute(query)
@@ -166,9 +166,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """Insert into "Movie Award" ("Date", "AwardName", "CategoryName", "MovieID") values ('2012-02-26', 'Academy Awards', 'Best Visual Effects', (Select "MovieID" From "Movie" Where "Title" = 'Hugo'))"""
 
 cur.execute(query)
@@ -184,9 +184,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """Insert into "Festival" ("FestivalName") values ('San Francisco International Film Festival')"""
 
 cur.execute(query)
@@ -196,9 +196,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """Insert into "Movie Festival" ("FestivalName", "MovieID", "Date") values ('Toronto International Film Festival', (Select "MovieID" From "Movie" Where "Title" = 'The Irishman'), '2019-09-16')"""
 
 cur.execute(query)
@@ -213,9 +213,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """Insert into "Genre" ("GenreName") values ('Comedy')"""
 
 cur.execute(query)
@@ -227,9 +227,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """ Insert into "Movie Category" ("MovieID", "GenreName") values ((Select "MovieID" From "Movie" Where "Title" = 'The Departed'), 'Drama') """
 
 cur.execute(query)
@@ -245,9 +245,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """Insert into "Cinema" ("CinemaName", "Location", "TypesOfHall") values ('Cineplex Cinemas', 'Yonge Dundas Centre', 'cine-complex') """
 
 cur.execute(query)
@@ -259,9 +259,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """ Insert into "Ticket" ("MovieID", "CinemaName", "Location", "SeatNo", "Price", "DateTime", "Type") values ((Select "MovieID" From "Movie" Where "Title" = 'Parasite'), 'Cineplex Cinemas', 'Yonge Dundas Centre', 'D04', '18.0', '20191115 07:30:00 PM', 'IMAX') """
 
 cur.execute(query)
@@ -277,9 +277,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """Insert into "University" ("UniName", "Private", "UniTotalStudents", "RepresentativeColor") values ('California State University, Sacramento', FALSE, 32000, 'Green') """
 
 cur.execute(query)
@@ -291,9 +291,9 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
 
-'''
+# #############################################################################
+
 query = """ Insert into "Department" ("DepartmentName", "UniID", "DepartmentTotalStudents") values ('Engineering', (Select "UniID" From "University" Where "UniName" = 'Newcastle University'), 3000) """
 
 cur.execute(query)
@@ -311,6 +311,6 @@ query = insert_query(
 )
 
 cur.execute(query)
-'''
+
 
 conn.commit()
