@@ -1,5 +1,3 @@
--- Task 1:
-
 -- List all directors who were born in Canada.
 Select "FirstName", "LastName", "Country" From "Director"
 Inner Join "Birth Location" On "Director"."BirthLocationID" = "Birth Location"."BirthLocationID"
